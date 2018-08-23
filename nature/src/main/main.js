@@ -41,8 +41,20 @@ class Main extends Component {
                     </AppBar>
                 </div>
                 <div style={{marginTop:'80px'}}>body....</div>
+                <div style={{marginTop:'80px'}}>body....</div>
+                <div style={{marginTop:'80px'}}>body1....</div>
+                <div style={{marginTop:'80px'}}>body.2...</div>
+                <div style={{marginTop:'80px'}}>body.3...</div>
+                <div style={{marginTop:'80px'}}>body..5..</div>
+                <div style={{marginTop:'80px'}}>body..5..</div>
+                <div style={{marginTop:'80px'}}>body..5..</div>
+                <div style={{marginTop:'80px'}}>body..5..</div>
+                <div style={{marginTop:'80px'}}>body..124.</div>
+                <div style={{marginTop:'80px'}}>body..5..</div>
+                <div style={{marginTop:'80px'}}>body..213.</div>
+                <div style={{marginTop:'80px'}}>body..5..</div>
 
-                <div >
+                <div style={{position: 'fixed', width: '100%',border: '1px solid red', bottom: '0', boxSizing: 'border-box'}}>
                     <BottomNavigation
                         value={page}
                         onChange={this.handleChange}
