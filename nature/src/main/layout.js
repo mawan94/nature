@@ -9,4 +9,8 @@ export const styles = {
         marginLeft: -12,
         marginRight: 20,
     },
+    navigationBar: {
+        position:'fixed',
+        bottom:0
+    }
 };

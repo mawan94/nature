@@ -10,22 +10,23 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import {connect} from 'react-redux'
 
+import {changePage} from './actions'
 import {styles} from './layout'
 
 class Main extends Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
+        changePage: PropTypes.func.isRequired
     };
-    state = {
-        value: 0,
-    };
+//https://www.npmjs.com/package/reactjs-swiper
     handleChange = (event, value) => {
-        this.setState({ value });
+        this.props.changePage(value);
     };
+
     render() {
-        const { classes } = this.props;
-        const { value } = this.state;
+        const { classes,page } = this.props;
 
         return (
             <div>
@@ -39,10 +40,11 @@ class Main extends Component {
                         </Toolbar>
                     </AppBar>
                 </div>
-                <div>body....</div>
-                <div>
+                <div style={{marginTop:'80px'}}>body....</div>
+
+                <div >
                     <BottomNavigation
-                        value={value}
+                        value={page}
                         onChange={this.handleChange}
                         showLabels
                         className={classes.root}
@@ -56,4 +58,7 @@ class Main extends Component {
         );
     }
 }
-export default withStyles(styles)(Main);
+export default connect(
+    (state) => ({state : state.page}),
+    {changePage}
+)(withStyles(styles)(Main));
