@@ -11,6 +11,7 @@ export const styles = {
     },
     navigationBar: {
         position:'fixed',
-        bottom:0
+        bottom: '0',
+        width: '100%'
     }
 };

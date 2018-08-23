@@ -1,6 +1,6 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -11,23 +11,30 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import {connect} from 'react-redux'
+import {Link, NavLink, Switch, Route, Redirect} from 'react-router-dom'
 
 import {changePage} from './actions'
 import {styles} from './layout'
+import {Home} from '../home/container/home'
+import {Me} from "../me/me";
+
 
 class Main extends Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
-        changePage: PropTypes.func.isRequired
+        changePage: PropTypes.func.isRequired,
+        currentPage:PropTypes.string.isRequired
     };
-//https://www.npmjs.com/package/reactjs-swiper
+
+
     handleChange = (event, value) => {
         this.props.changePage(value);
     };
 
-    render() {
-        const { classes,page } = this.props;
 
+    render() {
+        const {classes} = this.props;
+        console.log(this.props.currentPage)
         return (
             <div>
                 <div className={classes.root}>
@@ -40,37 +47,36 @@ class Main extends Component {
                         </Toolbar>
                     </AppBar>
                 </div>
-                <div style={{marginTop:'80px'}}>body....</div>
-                <div style={{marginTop:'80px'}}>body....</div>
-                <div style={{marginTop:'80px'}}>body1....</div>
-                <div style={{marginTop:'80px'}}>body.2...</div>
-                <div style={{marginTop:'80px'}}>body.3...</div>
-                <div style={{marginTop:'80px'}}>body..5..</div>
-                <div style={{marginTop:'80px'}}>body..5..</div>
-                <div style={{marginTop:'80px'}}>body..5..</div>
-                <div style={{marginTop:'80px'}}>body..5..</div>
-                <div style={{marginTop:'80px'}}>body..124.</div>
-                <div style={{marginTop:'80px'}}>body..5..</div>
-                <div style={{marginTop:'80px'}}>body..213.</div>
-                <div style={{marginTop:'80px'}}>body..5..</div>
+                <div>
+                    <Switch>
+                        <Route path='/home' component={Home}/>
+                        <Route path='/me' component={Me}/>
+                        <Redirect to={this.props.currentPage}/>
+                    </Switch>
+                </div>
 
-                <div style={{position: 'fixed', width: '100%',border: '1px solid red', bottom: '0', boxSizing: 'border-box'}}>
+                <div style={{
+                    position: 'fixed',
+                    width: '100%',
+                    bottom: '0',
+                }}>
                     <BottomNavigation
-                        value={page}
                         onChange={this.handleChange}
-                        showLabels
+                        showLabels={true}
                         className={classes.root}
                     >
-                        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-                        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+                        <BottomNavigationAction label="Home" icon={<RestoreIcon/>}/>
+                        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon/>}/>
+                        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon/>}/>
                     </BottomNavigation>
+
                 </div>
             </div>
         );
     }
 }
+
 export default connect(
-    (state) => ({state : state.page}),
+    (state) => ({currentPage: state.currentPage}),
     {changePage}
 )(withStyles(styles)(Main));
