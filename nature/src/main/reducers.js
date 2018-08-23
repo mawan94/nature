@@ -2,14 +2,15 @@ import React from 'react'
 import {combineReducers} from 'redux'
 
 import {CHANGE_PAGE} from './actionTypes'
+import {route} from "../common/common";
 
-const page = (state = 0,action) => {
-    switch (action.type){
+const currentPage = (state = '/home', action) => {
+    switch (action.type) {
         case CHANGE_PAGE:
-            return Object.assign({}, state, action.data);
+            return route[action.data];
         default :
             return state;
     }
 };
 
-export default combineReducers({page});
+export default combineReducers({currentPage});
