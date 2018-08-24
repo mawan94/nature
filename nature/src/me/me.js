@@ -2,6 +2,15 @@ import React,{Component} from 'react'
 
 export class Me extends Component{
     render(){
-        return <div>page2</div>
+        return (
+            <div>
+                <div>2114</div>
+                <div>2114</div>
+                <div>2114</div>
+                <div>2114</div>
+                <div>2114</div>
+                <div>2114</div>
+            </div>
+        )
     }
 }

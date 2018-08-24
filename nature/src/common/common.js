@@ -1,4 +1,4 @@
 export const route = {
-    0: '/home',
+    0: '/',
     1: '/me'
 };
