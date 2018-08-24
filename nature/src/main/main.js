@@ -23,18 +23,19 @@ class Main extends Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
         changePage: PropTypes.func.isRequired,
-        currentPage:PropTypes.string.isRequired
+        currentPage: PropTypes.string.isRequired
     };
 
 
     handleChange = (event, value) => {
         this.props.changePage(value);
+
     };
 
 
     render() {
-        const {classes} = this.props;
-        console.log(this.props.currentPage)
+        const {classes, currentPage} = this.props;
+        console.log(currentPage);
         return (
             <div>
                 <div className={classes.root}>
@@ -47,11 +48,12 @@ class Main extends Component {
                         </Toolbar>
                     </AppBar>
                 </div>
+
                 <div>
+                    <Redirect to={currentPage}/>
                     <Switch>
                         <Route path='/home' component={Home}/>
                         <Route path='/me' component={Me}/>
-                        <Redirect to={this.props.currentPage}/>
                     </Switch>
                 </div>
 
@@ -66,7 +68,7 @@ class Main extends Component {
                         className={classes.root}
                     >
                         <BottomNavigationAction label="Home" icon={<RestoreIcon/>}/>
-                        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon/>}/>
+                        <BottomNavigationAction label="Favorites"  icon={<FavoriteIcon/>}/>
                         <BottomNavigationAction label="Nearby" icon={<LocationOnIcon/>}/>
                     </BottomNavigation>
 
