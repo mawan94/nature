@@ -4,7 +4,7 @@ import {combineReducers} from 'redux'
 import {CHANGE_PAGE} from './actionTypes'
 import {route} from "../common/common";
 
-const currentPage = (state = '/home', action) => {
+const currentPage = (state = '/', action) => {
     switch (action.type) {
         case CHANGE_PAGE:
             return route[action.data];

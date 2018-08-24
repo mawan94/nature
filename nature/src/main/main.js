@@ -29,7 +29,6 @@ class Main extends Component {
 
     handleChange = (event, value) => {
         this.props.changePage(value);
-
     };
 
 
@@ -50,11 +49,11 @@ class Main extends Component {
                 </div>
 
                 <div>
-                    <Redirect to={currentPage}/>
                     <Switch>
-                        <Route path='/home' component={Home}/>
+                        <Route path='/' component={Home}/>
                         <Route path='/me' component={Me}/>
                     </Switch>
+                    <Redirect  to={currentPage}/>
                 </div>
 
                 <div style={{
