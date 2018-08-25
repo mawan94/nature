@@ -1,4 +1,5 @@
 export const route = {
     0: '/',
-    1: '/me'
+    1: '/product',
+    2: '/me'
 };

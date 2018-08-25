@@ -6,6 +6,7 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "^2.0.3",
     "axios": "^0.18.0",
+    "bootstrap": "^3.3.7",
     "prop-types": "latest",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
