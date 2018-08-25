@@ -11,12 +11,13 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import {connect} from 'react-redux'
-import {Link, NavLink, Switch, Route, Redirect} from 'react-router-dom'
+import {withRouter, Switch, Route} from 'react-router-dom'
 
 import {changePage} from './actions'
 import {styles} from './layout'
 import {Home} from '../home/container/home'
 import {Me} from "../me/me";
+import {route} from "../common/common";
 
 
 class Main extends Component {
@@ -29,6 +30,7 @@ class Main extends Component {
 
     handleChange = (event, value) => {
         this.props.changePage(value);
+        this.props.history.push(route[value])
     };
 
 
@@ -50,10 +52,9 @@ class Main extends Component {
 
                 <div>
                     <Switch>
-                        <Route path='/' component={Home}/>
+                        <Route exact path='/' component={Home}/>
                         <Route path='/me' component={Me}/>
                     </Switch>
-                    <Redirect  to={currentPage}/>
                 </div>
 
                 <div style={{
@@ -77,7 +78,8 @@ class Main extends Component {
     }
 }
 
-export default connect(
+const main =  connect(
     (state) => ({currentPage: state.currentPage}),
     {changePage}
 )(withStyles(styles)(Main));
+export default withRouter(main);
