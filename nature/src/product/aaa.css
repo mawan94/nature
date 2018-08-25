@@ -1,0 +1,5 @@
+.aaa:after {
+    content: '';
+    background-color: red;
+    width: 1px;
+}

@@ -17,6 +17,7 @@ import {changePage} from './actions'
 import {styles} from './layout'
 import {Home} from '../home/container/home'
 import {Me} from "../me/me";
+import {Product} from '../product/product'
 import {route} from "../common/common";
 
 
@@ -40,9 +41,9 @@ class Main extends Component {
         return (
             <div>
                 <div className={classes.root}>
-                    <AppBar position="static">
+                    <AppBar  position="fixed">
                         <Toolbar>
-                            <Typography variant="title" color="inherit" className={classes.flex}>
+                            <Typography variant="title"  color="inherit" className={classes.flex}>
                                 News
                             </Typography>
                             <Button color="inherit">Login</Button>
@@ -53,6 +54,7 @@ class Main extends Component {
                 <div>
                     <Switch>
                         <Route exact path='/' component={Home}/>
+                        <Route path='/product' component={Product}/>
                         <Route path='/me' component={Me}/>
                     </Switch>
                 </div>
