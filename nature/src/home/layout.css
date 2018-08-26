@@ -1,0 +1,38 @@
+.subject-container {
+    margin: 6px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.subject-font {
+    color: #C79B7C;
+    font-weight: bold
+}
+
+.banner-container {
+    margin-top: 55px;
+    height: 180px
+}
+
+.banner-image {
+    width: 100%;
+}
+
+.recommend-img {
+    width: 98%;
+    height: 160px
+}
+
+.recommend-img-bottom {
+    width: 99.2%;
+    margin-top: 3px;
+    height: 180px
+}
+
+.hot-img {
+    width: 98%;
+    height: 160px;
+    margin-top: 2px
+}

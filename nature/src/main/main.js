@@ -7,46 +7,43 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import StoreIcon from '@material-ui/icons/Store';
+import HomeIcon from '@material-ui/icons/Home';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {connect} from 'react-redux'
 import {withRouter, Switch, Route} from 'react-router-dom'
 
-import {changePage} from './actions'
 import {styles} from './layout'
 import {Home} from '../home/container/home'
-import {Me} from "../me/me";
-import {Product} from '../product/product'
+import {My} from "../my/my";
+import {Cart} from "../cart/cart";
+import Product from '../product/container/product.js'
 import {route} from "../common/common";
 
 
 class Main extends Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
-        changePage: PropTypes.func.isRequired,
-        currentPage: PropTypes.string.isRequired
     };
 
 
     handleChange = (event, value) => {
-        this.props.changePage(value);
         this.props.history.push(route[value])
     };
 
 
     render() {
-        const {classes, currentPage} = this.props;
-        console.log(currentPage);
+        const {classes} = this.props;
         return (
             <div>
                 <div className={classes.root}>
                     <AppBar  position="fixed">
                         <Toolbar>
                             <Typography variant="title"  color="inherit" className={classes.flex}>
-                                News
+                                大自然生态水族
                             </Typography>
-                            <Button color="inherit">Login</Button>
+                            <Button onClick={()=>alert('todo')} color="inherit">Login</Button>
                         </Toolbar>
                     </AppBar>
                 </div>
@@ -55,7 +52,8 @@ class Main extends Component {
                     <Switch>
                         <Route exact path='/' component={Home}/>
                         <Route path='/product' component={Product}/>
-                        <Route path='/me' component={Me}/>
+                        <Route path='/cart' component={Cart}/>
+                        <Route path='/my' component={My}/>
                     </Switch>
                 </div>
 
@@ -69,9 +67,10 @@ class Main extends Component {
                         showLabels={true}
                         className={classes.root}
                     >
-                        <BottomNavigationAction label="Home" icon={<RestoreIcon/>}/>
-                        <BottomNavigationAction label="Favorites"  icon={<FavoriteIcon/>}/>
-                        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon/>}/>
+                        <BottomNavigationAction label="主页" icon={<HomeIcon/>}/>
+                        <BottomNavigationAction label="商城"  icon={<StoreIcon/>}/>
+                        <BottomNavigationAction label="购物车" icon={<ShoppingCartIcon/>}/>
+                        <BottomNavigationAction label="我" icon={<AccountCircleIcon/>}/>
                     </BottomNavigation>
 
                 </div>
@@ -82,6 +81,6 @@ class Main extends Component {
 
 const main =  connect(
     (state) => ({currentPage: state.currentPage}),
-    {changePage}
+    {}
 )(withStyles(styles)(Main));
 export default withRouter(main);
