@@ -46,7 +46,8 @@
 }
 .head-img {
     width: 100%;
-    height: 140px
+    height: 140px;
+    border-radius:5px
 }
 .product-container{
     margin: 10px 0;
