@@ -18,31 +18,32 @@ class Products extends Component {
                 <div className="product-container">
                     <Grid container spacing={0}>
                         <Grid onClick={()=>console.log(123)} item xs={6}>
-                            <Card  className='card'>
-                                <CardMedia
-                                    className='card-img'
-                                    image="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3032577091,2896969095&fm=173&app=25&f=JPEG?w=639&h=394&s=21FD768678A70E96858DA6720300D057"
-                                    title="Contemplative Reptile"
-                                />
-                                <div className='card-title-container'>
-                                    <span className='card-title-text'>title</span>
+                            <div className='product-item-container'>
+                                <div className='product-img-wrapper'>
+                                    <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3032577091,2896969095&fm=173&app=25&f=JPEG?w=639&h=394&s=21FD768678A70E96858DA6720300D057"
+                                         className="img-circle product-img"/>
                                 </div>
-                                <p className='card-content'>是科技博客看看见珂珂珂珂珂珂珂珂珂珂觉得换个说法的否给市公司是德国时代和肉</p>
-                                {/*<p className='card-content'>是VSj都会ffffffffffffffffffffffffffff觉得换个说法的否给市公司是德国时代和肉...</p>*/}
-                            </Card>
+                                <div style={{marginTop:'10px'}}>
+                                    <span style={{fontSize:'14px'}}>商品标题简介啊啊</span>
+                                </div>
+                                <div style={{marginTop:'6px'}}>
+                                    <span style={{color:'red'}}>￥123</span>
+                                </div>
+                            </div>
                         </Grid>
-                        <Grid item xs={6}>
-                            <Card className='card'>
-                                <CardMedia
-                                    className='card-img'
-                                    image="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3032577091,2896969095&fm=173&app=25&f=JPEG?w=639&h=394&s=21FD768678A70E96858DA6720300D057"
-                                    title="Contemplative Reptile"
-                                />
-                                <div className='card-title-container'>
-                                    <span className='card-title-text'>title</span>
+                        <Grid onClick={()=>console.log(123)} item xs={6}>
+                            <div className='product-item-container'>
+                                <div className='product-img-wrapper'>
+                                    <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3032577091,2896969095&fm=173&app=25&f=JPEG?w=639&h=394&s=21FD768678A70E96858DA6720300D057"
+                                         className="img-circle product-img"/>
                                 </div>
-                                <p className='card-content'>是VSj都会觉得换oij个说法的否给市公司是德国时代和肉igiigy</p>
-                            </Card>
+                                <div style={{marginTop:'10px'}}>
+                                    <span style={{fontSize:'14px'}}>商品标题简介啊啊</span>
+                                </div>
+                                <div style={{marginTop:'6px'}}>
+                                    <span style={{color:'red'}}>￥123</span>
+                                </div>
+                            </div>
                         </Grid>
                     </Grid>
                 </div>
