@@ -4,10 +4,13 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 
+import {My} from "../../my/my";
+
 
 require('../layout.css');
 
 class Products extends Component {
+
 
     render() {
         return (
@@ -17,8 +20,8 @@ class Products extends Component {
                 </div>
                 <div className="product-container">
                     <Grid container spacing={0}>
-                        <Grid onClick={()=>console.log(123)} item xs={6}>
-                            <div className='product-item-container'>
+                        <Grid item xs={6}>
+                            <div onClick={()=>this.props.history.push('/detail/productid')} className='product-item-container'>
                                 <div className='product-img-wrapper'>
                                     <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3032577091,2896969095&fm=173&app=25&f=JPEG?w=639&h=394&s=21FD768678A70E96858DA6720300D057"
                                          className="img-circle product-img"/>

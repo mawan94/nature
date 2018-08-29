@@ -1,0 +1,28 @@
+.detail-info-wrapper{
+    margin: 12px 12px;
+}
+.detail-info-wrapper > span{
+   font-size: 15px;
+   color: #999;
+}
+.detail-name{}
+.detail-score{
+    float: right;
+    margin-right: 5px;
+}
+.detail-money-wrapper{
+    margin: 12px 12px;
+}
+.detail-old-money{
+    font-size: 15px;
+    color: #999;
+}
+.detail-now-money{
+    font-size: 18px;
+    color: red;
+}
+.detail-score-introduct{
+    font-size: 12px;
+    color: #999;
+    float: right;
+}

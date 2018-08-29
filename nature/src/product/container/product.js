@@ -16,11 +16,9 @@ class Product extends Component {
 
                     <ul className="nav nav-pills nav-stacked">
                         <li role="presentation">
-                            <NavLink to='/product/1'>鱼缸</NavLink>
+                            <NavLink to='/product/yu'>鱼缸</NavLink>
                         </li>
-                        <li role="presentation">
-                            <NavLink to='/product/2'>器材</NavLink>
-                        </li>
+                        <li role="presentation"><a href="javascript:void(0)">器材</a></li>
                         <li role="presentation"><a href="javascript:void(0)">热带鱼</a></li>
                         <li role="presentation"><a href="javascript:void(0)">水草</a></li>
                         <li role="presentation"><a href="javascript:void(0)">布景装饰</a></li>
@@ -31,9 +29,8 @@ class Product extends Component {
                 </div>
                 <div>
                     <Switch>
-                        <Route exact path='/product/1' component={Products}/>
-                        <Route exact path='/product/2' component={My}/>
-                        <Redirect to='/product/1'/>
+                        <Route exact path='/product/yu' component={Products}/>
+                        <Redirect to='/product/yu'/>
                     </Switch>
                 </div>
             </div>
