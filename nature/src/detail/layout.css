@@ -41,5 +41,6 @@
     width: 33.3%;
 }
 .detail-add-cart {
+    margin-top: 5px;
     float: right;
 }
