@@ -20,6 +20,7 @@ import {My} from "../my/my";
 import {Cart} from "../cart/cart";
 import Product from '../product/container/product.js'
 import {route} from "../common/common";
+import {Detail} from "../detail/detail";
 
 
 class Main extends Component {
@@ -54,6 +55,7 @@ class Main extends Component {
                         <Route path='/product' component={Product}/>
                         <Route path='/cart' component={Cart}/>
                         <Route path='/my' component={My}/>
+                        <Route path='/detail/productid' component={Detail}/>
                     </Switch>
                 </div>
 
