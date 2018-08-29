@@ -1,28 +1,45 @@
-.detail-info-wrapper{
+.detail-container{
+    height: 100%;
+}
+.detail-info-wrapper {
     margin: 12px 12px;
 }
-.detail-info-wrapper > span{
-   font-size: 15px;
-   color: #999;
+
+.detail-name {
+    font-size: 17px;
+    color: #666;
 }
-.detail-name{}
-.detail-score{
+
+.detail-score {
+    font-size: 15px;
+    color: #999;
     float: right;
     margin-right: 5px;
 }
-.detail-money-wrapper{
+
+.detail-money-wrapper {
     margin: 12px 12px;
 }
-.detail-old-money{
+
+.detail-old-money {
     font-size: 15px;
     color: #999;
 }
-.detail-now-money{
-    font-size: 18px;
+
+.detail-now-money {
+    font-size: 20px;
     color: red;
 }
-.detail-score-introduct{
+
+.detail-score-introduct {
     font-size: 12px;
     color: #999;
+    float: right;
+}
+
+.detail-tab {
+    width: 33.3%;
+}
+.detail-add-cart {
     float: right;
 }
