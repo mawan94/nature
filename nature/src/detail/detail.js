@@ -11,6 +11,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import Chip from '@material-ui/core/Chip'
+import TextField from '@material-ui/core/TextField';
 
 require('./layout.css');
 
@@ -18,6 +20,14 @@ export class Detail extends Component {
     state = {
         open: false,
         value: 2,
+        buyNum: ''
+    };
+
+
+    handleByNumber = name => event => {
+        this.setState({
+            [name]: event.target.value,
+        });
     };
 
     handleClickOpen = () => {
@@ -78,14 +88,42 @@ export class Detail extends Component {
                     </div>
                     {/* 加入购物车 end */}
                     {/*规格选择 start*/}
-                    <div style={{marginTop: '33px'}}>todo 规格参数选择</div>
-                    <div style={{marginTop: '33px'}}>todo 购买数量 库存</div>
-                    <div style={{marginTop: '33px'}}>xxx</div>
-                    <div style={{marginTop: '33px'}}>xxx</div>
-                    <div style={{marginTop: '33px'}}>xxx</div>
-                    {/*规格选择 end*/}
-                    {/* 产品说明 产品参数  评论 start*/}
+                    <div style={{marginTop: '33px',marginLeft:'8px'}}>
+                        <span style={{color:'#666'}}>规格参数选择</span>
+                    </div>
+                    <div style={{marginTop:'28px'}}>
+                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                    </div>
                     <div>
+                        <TextField style={{marginLeft: '20px'}}
+                                   label='购买数量'
+                                   placeholder="请输入购买数量"
+                                   id="number"
+                                   value={this.state.buyNum}
+                                   onChange={this.handleByNumber('buyNum')}
+                                   type="number"
+                        />
+                        <span style={{
+                            color: '#999',
+                            fontSize: '12px',
+                            marginTop: '8px',
+                            marginLeft: '18px'
+                        }}>库存: &nbsp;888件</span>
+                    </div>
+                    {/*规格选择 end*/}
+                    {/*小计start*/}
+                    <div style={{float: 'right', margin: '10px 8px'}}>
+                        <span>小计：￥<span style={{color: "red", fontSize: '18px'}}>35</span></span>
+                    </div>
+                    {/*小计end*/}
+                    {/* 产品说明 产品参数  评论 start*/}
+                    <div style={{marginTop: '66px'}}>
                         <Tabs
                             value={this.state.value}
                             indicatorColor="primary"
@@ -97,7 +135,8 @@ export class Detail extends Component {
                             <Tab className='detail-tab' label={
                                 <div>
                                     <span>评论</span>
-                                    <Badge children={1} style={{marginLeft: '15px', marginBottom: '15px'}} color="secondary"
+                                    <Badge children={1} style={{marginLeft: '15px', marginBottom: '15px'}}
+                                           color="secondary"
                                            badgeContent={'999+'}/>
                                 </div>
 
@@ -105,11 +144,10 @@ export class Detail extends Component {
                         </Tabs>
                     </div>
                     {/* 产品说明 产品参数  评论 end*/}
-
                 </div>
 
                 {/* 撑开容器 */}
-                <div style={{marginTop: '100px'}}/>
+                <div style={{marginTop: '108px'}}/>
             </div>
         )
     }
