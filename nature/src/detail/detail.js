@@ -71,18 +71,18 @@ export class Detail extends Component {
                     {/* 加入购物车 start */}
                     <div className='detail-add-cart'>
                         <Tooltip title="Add">
-                            <Button variant="fab"  aria-label="Add" >
+                            <Button variant="fab" aria-label="Add">
                                 <AddShoppingCartIcon/>
                             </Button>
                         </Tooltip>
                     </div>
                     {/* 加入购物车 end */}
                     {/*规格选择 start*/}
-                    <div style={{marginTop:'33px'}}>todo 规格参数选择</div>
-                    <div style={{marginTop:'33px'}}>todo 购买数量 库存</div>
-                    <div style={{marginTop:'33px'}}>xxx</div>
-                    <div style={{marginTop:'33px'}}>xxx</div>
-                    <div style={{marginTop:'33px'}}>xxx</div>
+                    <div style={{marginTop: '33px'}}>todo 规格参数选择</div>
+                    <div style={{marginTop: '33px'}}>todo 购买数量 库存</div>
+                    <div style={{marginTop: '33px'}}>xxx</div>
+                    <div style={{marginTop: '33px'}}>xxx</div>
+                    <div style={{marginTop: '33px'}}>xxx</div>
                     {/*规格选择 end*/}
                     {/* 产品说明 产品参数  评论 start*/}
                     <div>
@@ -97,7 +97,8 @@ export class Detail extends Component {
                             <Tab className='detail-tab' label={
                                 <div>
                                     <span>评论</span>
-                                    <Badge style={{marginLeft: '15px',marginBottom:'15px'}} color="secondary" badgeContent={'999+'}/>
+                                    <Badge children={1} style={{marginLeft: '15px', marginBottom: '15px'}} color="secondary"
+                                           badgeContent={'999+'}/>
                                 </div>
 
                             }/>
@@ -108,7 +109,7 @@ export class Detail extends Component {
                 </div>
 
                 {/* 撑开容器 */}
-                <div style={{marginTop:'100px'}}/>
+                <div style={{marginTop: '100px'}}/>
             </div>
         )
     }
