@@ -16,6 +16,7 @@ import TextField from '@material-ui/core/TextField';
 
 require('./layout.css');
 
+
 export class Detail extends Component {
     state = {
         open: false,
@@ -43,6 +44,7 @@ export class Detail extends Component {
     };
 
     render() {
+        const { classes } = this.props;
         return (
             <div className='detail-container'>
                 <Banner/>
@@ -76,7 +78,7 @@ export class Detail extends Component {
                     {/*什么是积分 end*/}
                     <hr/>
                     <div>
-                        <span style={{color: '#999'}}>赶快买 ！！！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！</span>
+                        <span style={{color: '#999'}}>赶快买 ！！！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！</span>
                     </div>
                     {/* 加入购物车 start */}
                     <div className='detail-add-cart'>
@@ -88,20 +90,20 @@ export class Detail extends Component {
                     </div>
                     {/* 加入购物车 end */}
                     {/*规格选择 start*/}
-                    <div style={{marginTop: '33px',marginLeft:'8px'}}>
-                        <span style={{color:'#666'}}>规格参数选择</span>
-                    </div>
                     <div style={{marginTop:'28px'}}>
+                        <div style={{marginTop: '36px',marginLeft:'8px'}}>
+                            <span style={{color:'#666'}}>规格参数选择</span>
+                        </div>
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
-                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        <Chip style={{margin: '5px 5px'}} color="primary" label="50~100 cm" variant="outlined"/>
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
                     </div>
                     <div>
-                        <TextField style={{marginLeft: '20px'}}
+                        <TextField style={{marginLeft: '10px'}}
                                    label='购买数量'
                                    placeholder="请输入购买数量"
                                    id="number"
@@ -112,14 +114,14 @@ export class Detail extends Component {
                         <span style={{
                             color: '#999',
                             fontSize: '12px',
-                            marginTop: '8px',
+                            marginTop: '10px',
                             marginLeft: '18px'
                         }}>库存: &nbsp;888件</span>
                     </div>
                     {/*规格选择 end*/}
                     {/*小计start*/}
-                    <div style={{float: 'right', margin: '10px 8px'}}>
-                        <span>小计：￥<span style={{color: "red", fontSize: '18px'}}>35</span></span>
+                    <div style={{float: 'right', margin: '12px 10px'}}>
+                        <span>小计：￥<span style={{color: "red", fontSize: '20px'}}>35</span></span>
                     </div>
                     {/*小计end*/}
                     {/* 产品说明 产品参数  评论 start*/}
