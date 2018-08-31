@@ -11,7 +11,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import Chip from '@material-ui/core/Chip'
 import TextField from '@material-ui/core/TextField';
 
 require('./layout.css');
@@ -21,9 +20,15 @@ export class Detail extends Component {
     state = {
         open: false,
         value: 2,
-        buyNum: ''
+        buyNum: '',
+        SKUStyle: []
     };
 
+    componentDidMount(){
+        this.setState({
+            SKUStyle:[{'1': 'default'}, {'2': 'default'}, {'3': 'default'}, {'4': 'default'}]
+        })
+    }
 
     handleByNumber = name => event => {
         this.setState({
@@ -43,14 +48,19 @@ export class Detail extends Component {
         this.setState({value});
     };
 
+    handleStyle=(value)=>{
+        console.log(value)
+    }
+
+
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
         return (
             <div className='detail-container'>
                 <Banner/>
                 <div className='detail-info-wrapper'>
                     <span className='detail-name'>商品名称商品名称</span>
-                    <span className='detail-score'>购买可得<span style={{color: 'red', fontSize: '16px'}}>3</span>积分</span>
+                    <span className='detail-score'>购买可得<span style={{color: 'red', fontSize: '16px'}}>5</span>积分</span>
                 </div>
                 <div className='detail-money-wrapper'>
                     <del className='detail-old-money'>￥8</del>
@@ -78,7 +88,8 @@ export class Detail extends Component {
                     {/*什么是积分 end*/}
                     <hr/>
                     <div>
-                        <span style={{color: '#999'}}>赶快买 ！！！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！</span>
+                        <span
+                            style={{color: '#999'}}>赶快买 ！！！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！</span>
                     </div>
                     {/* 加入购物车 start */}
                     <div className='detail-add-cart'>
@@ -90,19 +101,22 @@ export class Detail extends Component {
                     </div>
                     {/* 加入购物车 end */}
                     {/*规格选择 start*/}
-                    <div style={{marginTop:'28px'}}>
-                        <div style={{marginTop: '36px',marginLeft:'8px'}}>
-                            <span style={{color:'#666'}}>规格参数选择</span>
+                    <div style={{marginTop: '28px'}}>
+                        <div style={{marginTop: '36px', marginLeft: '8px'}}>
+                            <span style={{color: '#666'}}>规格参数选择</span>
+                            <hr/>
                         </div>
-                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
-                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
-                        <Chip style={{margin: '5px 5px'}} color="primary" label="50~100 cm" variant="outlined"/>
-                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
-                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
-                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
-                        <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
+                        {/*<Chip onClick={()=>this.handleStyle(1)}  style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
+                        {/*<Chip onClick={()=>this.handleStyle(2)}   style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
+                        {/*<Chip onClick={()=>this.handleStyle(3)}   style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
+                        {/*<Chip onClick={()=>this.handleStyle(4)}   style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
+                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">10-12 cm</button>
+                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">12-15 cm</button>
+                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">15-20 cm</button>
+                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">20-25 cm</button>
+                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">25-30 87 88 cm</button>
                     </div>
-                    <div style={{display:'flex',alignItems:'center'}}>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
                         <TextField style={{marginLeft: '10px'}}
                                    label='购买数量'
                                    placeholder="请输入购买数量"
@@ -112,6 +126,7 @@ export class Detail extends Component {
                                    type="number"
                         />
                         <span style={{
+                            marginTop: '26px',
                             color: '#999',
                             fontSize: '12px',
                             marginLeft: '18px'
