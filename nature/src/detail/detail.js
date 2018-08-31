@@ -102,7 +102,7 @@ export class Detail extends Component {
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
                         <Chip style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>
                     </div>
-                    <div>
+                    <div style={{display:'flex',alignItems:'center'}}>
                         <TextField style={{marginLeft: '10px'}}
                                    label='购买数量'
                                    placeholder="请输入购买数量"
@@ -114,7 +114,6 @@ export class Detail extends Component {
                         <span style={{
                             color: '#999',
                             fontSize: '12px',
-                            marginTop: '10px',
                             marginLeft: '18px'
                         }}>库存: &nbsp;888件</span>
                     </div>
