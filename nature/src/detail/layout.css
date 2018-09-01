@@ -45,7 +45,25 @@
     float: right;
 }
 
-.styleBTN{
+.detail-sku-group{
+    height: 50px;
+    width: 100px;
     border-radius: 10px;
-    margin: 5px 8px;
+    /*border: solid silver;*/
 }
+
+.click-style{
+    /*background-color: red;*/
+    background: linear-gradient(to bottom right, red , #ff9933)
+}
+
+.click-font{
+    color: white;
+}
+
+.default-font{
+    color: #666;
+}
+
+
+

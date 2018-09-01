@@ -12,6 +12,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import TextField from '@material-ui/core/TextField';
+import Snackbar from '@material-ui/core/Snackbar';
+
+import p1 from '../images/1.png'
 
 require('./layout.css');
 
@@ -20,15 +23,30 @@ export class Detail extends Component {
     state = {
         open: false,
         value: 2,
-        buyNum: '',
-        SKUStyle: []
+        buyNum: 1,
+        index: -1,
+        fontColor: '#666'
     };
 
-    componentDidMount() {
-        this.setState({
-            SKUStyle: [{'1': 'default'}, {'2': 'default'}, {'3': 'default'}, {'4': 'default'}]
-        })
-    }
+
+    handleClick = (index) => {
+        console.log(index);
+        this.setState({index})
+    };
+
+
+    decreamBuyNum = () => {
+        let buyNum = this.state.buyNum - 1;
+        if (buyNum === 0) {
+            return
+        }
+        this.setState({buyNum})
+    };
+
+    increamBuyNum = () => {
+        let buyNum = this.state.buyNum + 1;
+        this.setState({buyNum})
+    };
 
     handleByNumber = name => event => {
         this.setState({
@@ -48,13 +66,11 @@ export class Detail extends Component {
         this.setState({value});
     };
 
-    handleStyle = (value) => {
-        console.log(value)
-    }
-
 
     render() {
         const {classes} = this.props;
+        const list = ['10*10*5', '10*10*5', '10*10*5', '10*10*5', '10*10*5', '10*10*5这是的地方', '10*10*5', '10*10*5'];
+        const {index, fontColor} = this.state;
         return (
             <div className='detail-container'>
                 <Banner/>
@@ -92,19 +108,28 @@ export class Detail extends Component {
                             style={{color: '#999'}}>赶快买 ！！！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！</span>
                     </div>
                     {/* 加入购物车 start */}
-                    <div className='detail-add-cart'>
-                        <Tooltip title="Add">
-                            <Button variant="fab" aria-label="Add">
-                                <AddShoppingCartIcon/>
-                            </Button>
-                        </Tooltip>
-                    </div>
+                    {/*<div className='detail-add-cart'>*/}
+                    {/*<Tooltip title="Add">*/}
+                    {/*<Button variant="fab" aria-label="Add">*/}
+                    {/*<AddShoppingCartIcon/>*/}
+                    {/*</Button>*/}
+                    {/*</Tooltip>*/}
+                    {/*</div>*/}
                     {/* 加入购物车 end */}
                     {/*规格选择 start*/}
-                    <div style={{marginTop: '28px'}}>
-                        <div style={{marginTop: '36px', marginLeft: '8px'}}>
-                            <span style={{color: '#666'}}>规格参数选择</span>
-                            <hr/>
+                    <div style={{marginTop: '18px'}}>
+
+                        <div style={{marginTop: '16px', marginBottom: '5px', marginLeft: '8px'}}>
+                            {/*<hr/>*/}
+                            <img src={p1} style={{height: '15%', width: '20%'}}/>
+                            <span style={{marginLeft: '15px', color: 'red'}}>请 选 择 规 格</span>
+                            <div style={{
+                                position: 'relative',
+                                bottom: '8px',
+                                right: '8px',
+                                borderTop: '1px solid #999',
+                                zIndex: '-1'
+                            }}/>
                         </div>
 
                         {/*width: 100px;*/}
@@ -116,55 +141,53 @@ export class Detail extends Component {
                         {/*-webkit-line-clamp: 2;*/}
                         {/*-webkit-box-orient: vertical;*/}
 
-                        {/*class Index extends Component {*/}
-
-                        {/*state = {*/}
-                            {/*index: -1*/}
-                        {/*};*/}
-
-                        {/*handleClick = (index) => {*/}
-                        {/*console.log(index)*/}
-                        {/*this.setState({index})*/}
-                    {/*};*/}
-
-                        {/*render() {*/}
-                        {/*const list = [0, 1, 2, 3, 4, 5, 6, 7, 8];*/}
-                        {/*const {index} = this.state;*/}
-                        {/*return (*/}
-                        {/*list.map((el, i) => {*/}
-                        {/*return <div className={index === i ? "current" : ""} onClick={() => this.handleClick(i)}>{el}</div>*/}
-                    {/*})*/}
-                        {/*)*/}
-                    {/*}*/}
-                    {/*}*/}
-
-                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">10-12 cm</button>
-                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">12-15 cm</button>
-                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">15-20 cm</button>
-                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">20-25 cm</button>
-                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">25-30 87 88 cm
-                        </button>
+                        <div>
+                            {
+                                list.map((el, i) => <div style={{
+                                        height: '36px',
+                                        borderRadius: '8px',
+                                        border: '1px solid #DDD',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        margin: '6px 6px',
+                                        float: 'left'
+                                    }} key={i} className={index === i ? "click-style" : ""}
+                                                         onClick={() => this.handleClick(i)}>
+                                        <span className={index === i ? "click-font" : "default-font"}
+                                              style={{margin: '5px 12px'}}>{el}</span>
+                                    </div>
+                                )
+                            }
+                        </div>
                     </div>
+                    <div style={{clear: 'both'}}/>
+
+                    {/*<div>*/}
+                        {/*<span style={{marginLeft:'5%',color:'red'}}>购 买 数 量:</span>*/}
+                    {/*</div>*/}
+                    <div style={{borderTop:'1px solid #999',margin:'10px'}}/>
                     <div style={{display: 'flex', alignItems: 'center'}}>
-                        <TextField style={{marginLeft: '10px'}}
-                                   label='购买数量'
-                                   placeholder="请输入购买数量"
-                                   id="number"
-                                   value={this.state.buyNum}
-                                   onChange={this.handleByNumber('buyNum')}
-                                   type="number"
-                        />
+                        <div style={{marginLeft:'10px'}} className="btn-group" role="group" aria-label="...">
+                            <button type="button" className="btn btn-default" onClick={() => this.decreamBuyNum()}>-
+                            </button>
+                            <button type="button" className="btn btn-default disabled">{this.state.buyNum}</button>
+                            <button type="button" className="btn btn-default" onClick={() => this.increamBuyNum()}>+
+                            </button>
+                        </div>
                         <span style={{
-                            marginTop: '26px',
-                            color: '#999',
-                            fontSize: '12px',
+                            color: '#666',
+                            fontSize: '15px',
                             marginLeft: '18px'
                         }}>库存: &nbsp;888件</span>
+                    </div>
+                    <div style={{margin:'6px 10px'}}>
+                        <span style={{fontSize:'12px', color:'#FF1141'}}>赶快买啊老铁！光看不买不太好哦</span>
                     </div>
                     {/*规格选择 end*/}
                     {/*小计start*/}
                     <div style={{float: 'right', margin: '12px 10px'}}>
-                        <span>小计：￥<span style={{color: "red", fontSize: '20px'}}>35</span></span>
+                        <span>小计：<span style={{color: "red", fontSize: '20px'}}>￥35</span></span>
                     </div>
                     {/*小计end*/}
                     {/* 产品说明 产品参数  评论 start*/}
@@ -191,8 +214,42 @@ export class Detail extends Component {
                     {/* 产品说明 产品参数  评论 end*/}
                 </div>
 
+                {/*加入购物车 start*/}
+                <div style={{
+                    position: 'fixed',
+                    width: '100%',
+                    bottom: '8.5%',
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '1px',
+                        height: '50px',
+                        backgroundColor: '#ff6633',
+                        width: '50%',
+                        float: 'left'
+                    }}>
+                        <span style={{color: '#fff', fontSize: '18px'}}>加入购物车</span>
+                    </div>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '1px',
+                        height: '50px',
+                        backgroundColor: '#ff3333',
+                        width: '50%',
+                        float: 'left'
+                    }}>
+                        <span style={{color: '#fff', fontSize: '18px'}}>立即购买</span>
+                    </div>
+                </div>
+                {/*加入购物车 end*/}
+                <div style={{clear: 'both'}}/>
+
                 {/* 撑开容器 */}
-                <div style={{marginTop: '108px'}}/>
+                <div style={{marginTop: '160px'}}/>
             </div>
         )
     }
