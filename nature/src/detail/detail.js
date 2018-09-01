@@ -24,9 +24,9 @@ export class Detail extends Component {
         SKUStyle: []
     };
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
-            SKUStyle:[{'1': 'default'}, {'2': 'default'}, {'3': 'default'}, {'4': 'default'}]
+            SKUStyle: [{'1': 'default'}, {'2': 'default'}, {'3': 'default'}, {'4': 'default'}]
         })
     }
 
@@ -48,7 +48,7 @@ export class Detail extends Component {
         this.setState({value});
     };
 
-    handleStyle=(value)=>{
+    handleStyle = (value) => {
         console.log(value)
     }
 
@@ -106,15 +106,44 @@ export class Detail extends Component {
                             <span style={{color: '#666'}}>规格参数选择</span>
                             <hr/>
                         </div>
-                        {/*<Chip onClick={()=>this.handleStyle(1)}  style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
-                        {/*<Chip onClick={()=>this.handleStyle(2)}   style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
-                        {/*<Chip onClick={()=>this.handleStyle(3)}   style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
-                        {/*<Chip onClick={()=>this.handleStyle(4)}   style={{margin: '5px 5px'}} label="50~100 cm" variant="outlined"/>*/}
-                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">10-12 cm</button>
-                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">12-15 cm</button>
-                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">15-20 cm</button>
-                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">20-25 cm</button>
-                            <button type="button" className="btn btn-default styleBTN dropdown-toggle">25-30 87 88 cm</button>
+
+                        {/*width: 100px;*/}
+                        {/*height: 45px;*/}
+                        {/*display: inline-block; /*变成块才行*/}
+                        {/*overflow : hidden;*/}
+                        {/*text-overflow: ellipsis;*/}
+                        {/*display: -webkit-box;*/}
+                        {/*-webkit-line-clamp: 2;*/}
+                        {/*-webkit-box-orient: vertical;*/}
+
+                        {/*class Index extends Component {*/}
+
+                        {/*state = {*/}
+                            {/*index: -1*/}
+                        {/*};*/}
+
+                        {/*handleClick = (index) => {*/}
+                        {/*console.log(index)*/}
+                        {/*this.setState({index})*/}
+                    {/*};*/}
+
+                        {/*render() {*/}
+                        {/*const list = [0, 1, 2, 3, 4, 5, 6, 7, 8];*/}
+                        {/*const {index} = this.state;*/}
+                        {/*return (*/}
+                        {/*list.map((el, i) => {*/}
+                        {/*return <div className={index === i ? "current" : ""} onClick={() => this.handleClick(i)}>{el}</div>*/}
+                    {/*})*/}
+                        {/*)*/}
+                    {/*}*/}
+                    {/*}*/}
+
+                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">10-12 cm</button>
+                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">12-15 cm</button>
+                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">15-20 cm</button>
+                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">20-25 cm</button>
+                        <button type="button" className="btn btn-default styleBTN dropdown-toggle">25-30 87 88 cm
+                        </button>
                     </div>
                     <div style={{display: 'flex', alignItems: 'center'}}>
                         <TextField style={{marginLeft: '10px'}}
