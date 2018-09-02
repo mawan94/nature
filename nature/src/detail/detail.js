@@ -15,7 +15,7 @@ import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
 
 import p1 from '../images/1.png'
-
+import {Comment} from '../comment/comment'
 require('./layout.css');
 
 
@@ -25,7 +25,8 @@ export class Detail extends Component {
         value: 2,
         buyNum: 1,
         index: -1,
-        fontColor: '#666'
+        fontColor: '#666',
+        goodArgs:<Comment/>
     };
 
 
@@ -64,6 +65,20 @@ export class Detail extends Component {
 
     handleChange = (event, value) => {
         this.setState({value});
+    };
+
+    changeView = (value) => {
+      switch (value){
+          case 'explain':
+              this.setState({goodArgs:'说明 todo'});
+              break;
+          case 'args':
+              this.setState({goodArgs:'参数 todo'});
+              break;
+          case 'comment':
+              this.setState({goodArgs:<Comment/>});
+              break
+      }
     };
 
 
@@ -105,18 +120,8 @@ export class Detail extends Component {
                     <hr/>
                     <div>
                         <span
-                            style={{color: '#999'}}>赶快买 ！！！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！</span>
+                            style={{color: '#666'}}>赶快买 ！！！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！商品介绍这个东西好啊！</span>
                     </div>
-                    {/* 加入购物车 start */}
-                    {/*<div className='detail-add-cart'>*/}
-                    {/*<Tooltip title="Add">*/}
-                    {/*<Button variant="fab" aria-label="Add">*/}
-                    {/*<AddShoppingCartIcon/>*/}
-                    {/*</Button>*/}
-                    {/*</Tooltip>*/}
-                    {/*</div>*/}
-                    {/* 加入购物车 end */}
-                    {/*规格选择 start*/}
                     <div style={{marginTop: '18px'}}>
 
                         <div style={{marginTop: '16px', marginBottom: '5px', marginLeft: '8px'}}>
@@ -171,8 +176,8 @@ export class Detail extends Component {
                         <div style={{marginLeft:'10px'}} className="btn-group" role="group" aria-label="...">
                             <button type="button" className="btn btn-default" onClick={() => this.decreamBuyNum()}>-
                             </button>
-                            <button type="button" className="btn btn-default disabled">{this.state.buyNum}</button>
-                            <button type="button" className="btn btn-default" onClick={() => this.increamBuyNum()}>+
+                            <button type="button" style={{zIndex:'0'}}  className="btn btn-default disabled">{this.state.buyNum}</button>
+                            <button type="button" style={{zIndex:'0'}} className="btn btn-default" onClick={() => this.increamBuyNum()}>+
                             </button>
                         </div>
                         <span style={{
@@ -181,9 +186,7 @@ export class Detail extends Component {
                             marginLeft: '18px'
                         }}>库存: &nbsp;888件</span>
                     </div>
-                    <div style={{margin:'6px 10px'}}>
-                        <span style={{fontSize:'12px', color:'#FF1141'}}>赶快买啊老铁！光看不买不太好哦</span>
-                    </div>
+
                     {/*规格选择 end*/}
                     {/*小计start*/}
                     <div style={{float: 'right', margin: '12px 10px'}}>
@@ -198,9 +201,9 @@ export class Detail extends Component {
                             textColor="primary"
                             onChange={this.handleChange}
                         >
-                            <Tab className='detail-tab' label="产品说明"/>
-                            <Tab className='detail-tab' label="规格参数"/>
-                            <Tab className='detail-tab' label={
+                            <Tab onClick={()=>this.changeView('explain')} className='detail-tab' label="产品说明"/>
+                            <Tab onClick={()=>this.changeView('args')} className='detail-tab' label="规格参数"/>
+                            <Tab onClick={()=>this.changeView('comment')} className='detail-tab' label={
                                 <div>
                                     <span>评论</span>
                                     <Badge children={1} style={{marginLeft: '15px', marginBottom: '15px'}}
@@ -210,6 +213,11 @@ export class Detail extends Component {
 
                             }/>
                         </Tabs>
+                    </div>
+                    {/* todo ...*/}
+                    <div>
+                        {/*<Comment/>*/}
+                        {this.state.goodArgs}
                     </div>
                     {/* 产品说明 产品参数  评论 end*/}
                 </div>
@@ -225,10 +233,10 @@ export class Detail extends Component {
                         alignItems: 'center',
                         justifyContent: 'center',
                         borderRadius: '1px',
-                        height: '50px',
+                        height: '60px',
                         backgroundColor: '#ff6633',
                         width: '50%',
-                        float: 'left'
+                        float: 'left',
                     }}>
                         <span style={{color: '#fff', fontSize: '18px'}}>加入购物车</span>
                     </div>
@@ -237,7 +245,7 @@ export class Detail extends Component {
                         alignItems: 'center',
                         justifyContent: 'center',
                         borderRadius: '1px',
-                        height: '50px',
+                        height: '60px',
                         backgroundColor: '#ff3333',
                         width: '50%',
                         float: 'left'
