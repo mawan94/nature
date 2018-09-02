@@ -24,6 +24,7 @@ class Product extends Component {
                         <li role="presentation"><a href="javascript:void(0)">布景装饰</a></li>
                         <li role="presentation"><a href="javascript:void(0)">鱼食</a></li>
                         <li role="presentation"><a href="javascript:void(0)">套餐推荐</a></li>
+                        <li role="presentation"><a href="javascript:void(0)">积分商城</a></li>
                     </ul>
 
                 </div>
