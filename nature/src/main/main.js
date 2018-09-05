@@ -49,7 +49,7 @@ class Main extends Component {
                     </AppBar>
                 </div>
 
-                <div>
+                <div style={{backgroundColor:'#F7F7F7'}}>
                     <Switch>
                         <Route exact path='/' component={Home}/>
                         <Route path='/product' component={Product}/>

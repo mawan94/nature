@@ -25,7 +25,10 @@ export class Cart extends Component {
         const {gilad, jason, antoine} = this.state;
         const error = Object.values(this.state).filter(v => v).length !== 2;
         return (
-            <div style={{marginTop: '56px'}}>
+            <div style={{marginTop: '56px',height:'100%'}}>
+                <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+                    <span>我的购物车</span>
+                </div>
                 <FormControl component="fieldset">
                     {/*<FormLabel component="legend">Assign responsibility</FormLabel>*/}
                     <FormGroup style={{padding:'0 10px'}}>
@@ -34,7 +37,7 @@ export class Cart extends Component {
                                 <Checkbox checked={gilad} onChange={this.handleChange('gilad')} value="gilad"/>
                             }
                             label={
-                                <div style={{margin:'15px 0'}}>
+                                <div className='cart-item-wrapper'>
                                     <div className='product-img-wrapper'>
                                         <img
                                             src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3032577091,2896969095&fm=173&app=25&f=JPEG?w=639&h=394&s=21FD768678A70E96858DA6720300D057"

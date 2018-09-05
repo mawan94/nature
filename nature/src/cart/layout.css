@@ -1,9 +1,15 @@
-.product-img{
+.product-img {
     height: 100%;
     width: 100%;
 }
-.product-img-wrapper{
+
+.product-img-wrapper {
     float: left;
     height: 80px;
     width: 80px;
+}
+
+.cart-item-wrapper {
+    color: red !important;
+    margin: 15px 0
 }
