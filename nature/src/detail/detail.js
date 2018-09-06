@@ -137,14 +137,7 @@ export class Detail extends Component {
                             }}/>
                         </div>
 
-                        {/*width: 100px;*/}
-                        {/*height: 45px;*/}
-                        {/*display: inline-block; /*变成块才行*/}
-                        {/*overflow : hidden;*/}
-                        {/*text-overflow: ellipsis;*/}
-                        {/*display: -webkit-box;*/}
-                        {/*-webkit-line-clamp: 2;*/}
-                        {/*-webkit-box-orient: vertical;*/}
+
 
                         <div>
                             {
